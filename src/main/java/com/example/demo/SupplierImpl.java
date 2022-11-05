@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SupplierImpl implements Supplier<String> {
+public class SupplierImpl implements SampleSupplier {
     public String name = "かきくけこ";
 
     SupplierImpl(String name) {
@@ -20,6 +20,9 @@ public class SupplierImpl implements Supplier<String> {
         return name;
     }
 
+    // defaultメソッドは上書き可能
+    // 記述しない場合、より近い継承先のdefaultメソッドが参照される
+    // 複数implementsする場合など判断がつかない場合はエラーとなるのでOverride必須
     public String sasisuseso() {
         return "さしすせそ";
     }
